@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 20 14.3% 4.1%;
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+  --primary: 142 70% 25%;
+  --primary-foreground: 355 100% 100%;
+  --secondary: 142 76% 36%;
+  --secondary-foreground: 0 0% 100%;
+  --accent: 142 76% 96%;
+  --accent-foreground: 142 70% 25%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 142 70% 25%;
+  --radius: 0.5rem;
+  
+  /* Chart colors from shadcn */
+  --chart-1: var(--primary);
+  --chart-2: var(--secondary);
+  --chart-3: 201 96% 32%;
+  --chart-4: 217 91% 60%;
+  --chart-5: 316 70% 50%;
+  
+  /* Custom colors for our potato app */
+  --sidebar-background: var(--background);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 142 60% 30%;
+  --primary-foreground: 355 100% 100%;
+  --secondary: 142 50% 45%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 142 30% 20%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 142 50% 45%;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-[#F5F5F5] text-foreground;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+}
+
+/* Custom design-specific classes */
+.confidence-bar {
+  height: 8px;
+  border-radius: 4px;
+  background-color: #E0E0E0;
+  overflow: hidden;
+}
+
+.confidence-value {
+  height: 100%;
+  background-color: #4CAF50;
+}
+
+.image-preview {
+  max-height: 300px;
+  object-fit: contain;
+}
