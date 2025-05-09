@@ -37,12 +37,12 @@ export default function Analyzer() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       
-      <main className="flex-grow bg-[#F5F5F5] py-8">
+      <main className="flex-grow bg-[#F5F5F5] dark:bg-black py-8">
         <div className="container mx-auto px-4 max-w-6xl">
           {/* Header Section */}
           <header className="mb-8 text-center">
             <h1 className="text-3xl md:text-4xl font-bold mb-2 text-primary">Potato Leaf Analyzer</h1>
-            <p className="text-lg text-neutral-dark max-w-3xl mx-auto">
+            <p className="text-lg text-neutral-dark dark:text-gray-300 max-w-3xl mx-auto">
               Upload an image of a potato leaf to identify potential diseases using our advanced CNN model
             </p>
           </header>

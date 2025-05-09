@@ -12,7 +12,7 @@ function ModeToggle() {
       onClick={toggleTheme}
       className="text-gray-400 hover:text-white"
     >
-      {theme === "light" ? (
+      {theme === "dark" ? (
         <Moon className="h-5 w-5" />
       ) : (
         <Sun className="h-5 w-5" />
