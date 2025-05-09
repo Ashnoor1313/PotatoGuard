@@ -28,12 +28,12 @@ function ModeToggle() {
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
-      className="rounded-full bg-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/30"
+      className="rounded-full bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white"
     >
       {theme === "light" ? (
-        <Moon className="h-5 w-5" />
+        <Moon className="h-4 w-4" />
       ) : (
-        <Sun className="h-5 w-5" />
+        <Sun className="h-4 w-4" />
       )}
       <span className="sr-only">Toggle theme</span>
     </Button>
@@ -45,45 +45,47 @@ export function Navbar() {
   const isActive = (path: string) => location === path;
 
   return (
-    <nav className="bg-primary text-white py-4">
+    <nav className="bg-neutral-900 text-white py-3 shadow-md">
       <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
         <div className="flex items-center mb-4 md:mb-0">
           <Link href="/">
-            <div className="flex items-center space-x-2 text-white cursor-pointer">
-              <Leaf className="h-6 w-6" />
-              <span className="text-xl font-bold">PotatoGuard</span>
+            <div className="flex items-center space-x-3 text-white cursor-pointer group">
+              <div className="bg-primary rounded-full p-1.5 group-hover:bg-primary/90 transition-colors">
+                <Leaf className="h-5 w-5" />
+              </div>
+              <span className="text-xl font-bold tracking-tight">PotatoGuard</span>
             </div>
           </Link>
-          <p className="text-xs ml-2 text-primary-foreground/80">AI-Powered Disease Detection</p>
+          <div className="bg-primary/10 px-2 py-0.5 rounded-full ml-3">
+            <p className="text-xs font-medium text-primary">AI-Powered Disease Detection</p>
+          </div>
         </div>
         
-        <div className="flex items-center space-x-6">
-          <Link href="/">
-            <span className={`text-sm font-medium cursor-pointer ${isActive("/") ? "text-white underline decoration-2 underline-offset-4" : "text-primary-foreground/90 hover:text-white"}`}>
-              Home
-            </span>
-          </Link>
-          <Link href="/analyzer">
-            <span className={`text-sm font-medium cursor-pointer ${isActive("/analyzer") ? "text-white underline decoration-2 underline-offset-4" : "text-primary-foreground/90 hover:text-white"}`}>
-              Analyzer
-            </span>
-          </Link>
-          <Link href="/guide">
-            <span className={`text-sm font-medium cursor-pointer ${isActive("/guide") ? "text-white underline decoration-2 underline-offset-4" : "text-primary-foreground/90 hover:text-white"}`}>
-              Guide
-            </span>
-          </Link>
-          <Link href="/diseases">
-            <span className={`text-sm font-medium cursor-pointer ${isActive("/diseases") ? "text-white underline decoration-2 underline-offset-4" : "text-primary-foreground/90 hover:text-white"}`}>
-              Diseases
-            </span>
-          </Link>
-          <Link href="/prevention">
-            <span className={`text-sm font-medium cursor-pointer ${isActive("/prevention") ? "text-white underline decoration-2 underline-offset-4" : "text-primary-foreground/90 hover:text-white"}`}>
-              Prevention
-            </span>
-          </Link>
-          <ModeToggle />
+        <div className="flex items-center space-x-1 md:space-x-2">
+          {[
+            { path: "/", label: "Home" },
+            { path: "/analyzer", label: "Analyzer" },
+            { path: "/guide", label: "Guide" },
+            { path: "/diseases", label: "Diseases" },
+            { path: "/prevention", label: "Prevention" }
+          ].map((item) => (
+            <Link key={item.path} href={item.path}>
+              <span 
+                className={`
+                  px-3 py-2 rounded-md text-sm font-medium cursor-pointer transition-colors
+                  ${isActive(item.path) 
+                    ? "bg-primary/20 text-primary" 
+                    : "text-gray-300 hover:bg-gray-800 hover:text-white"
+                  }
+                `}
+              >
+                {item.label}
+              </span>
+            </Link>
+          ))}
+          <div className="ml-2">
+            <ModeToggle />
+          </div>
         </div>
       </div>
     </nav>
