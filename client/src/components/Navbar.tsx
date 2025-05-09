@@ -32,7 +32,8 @@ export function Navbar() {
     { path: "/analyzer", label: "Analyzer" },
     { path: "/guide", label: "Guide" },
     { path: "/diseases", label: "Diseases" },
-    { path: "/prevention", label: "Prevention" }
+    { path: "/prevention", label: "Prevention" },
+    { path: "/learning", label: "Learning" }
   ];
 
   return (
