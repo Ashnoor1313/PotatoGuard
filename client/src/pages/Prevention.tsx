@@ -177,29 +177,29 @@ export default function Prevention() {
                   <h2 className="text-xl font-bold text-primary pt-1">Chemical Controls</h2>
                 </div>
                 
-                <p className="mb-4">
+                <p className="mb-4 text-gray-800 dark:text-gray-300">
                   When used appropriately, fungicides and other chemical controls can be effective components of an integrated disease management strategy.
                 </p>
                 
-                <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
+                <div className="bg-yellow-50 dark:bg-yellow-900/30 border-l-4 border-yellow-400 p-4 mb-4">
                   <div className="flex items-start">
                     <AlertTriangle className="h-5 w-5 text-yellow-500 mr-2 mt-0.5" />
-                    <p className="text-sm">Always follow label instructions and local regulations when applying any chemical products. Consult with your local agricultural extension office for specific recommendations for your region.</p>
+                    <p className="text-sm text-gray-800 dark:text-gray-300">Always follow label instructions and local regulations when applying any chemical products. Consult with your local agricultural extension office for specific recommendations for your region.</p>
                   </div>
                 </div>
                 
-                <h3 className="font-semibold mb-2">Preventative Applications:</h3>
-                <ul className="list-disc pl-5 space-y-1 text-sm mb-4">
+                <h3 className="font-semibold mb-2 text-gray-800 dark:text-gray-200">Preventative Applications:</h3>
+                <ul className="list-disc pl-5 space-y-1 text-sm mb-4 text-gray-700 dark:text-gray-300">
                   <li>Apply fungicides before disease appears during high-risk periods</li>
                   <li>Use forecast models to time applications effectively</li>
                   <li>Rotate chemical classes to prevent resistance development</li>
                 </ul>
                 
-                <h3 className="font-semibold mb-2">Disease-Specific Approaches:</h3>
-                <ul className="list-disc pl-5 space-y-1 text-sm">
-                  <li><strong>Late Blight:</strong> Protective fungicides with different modes of action</li>
-                  <li><strong>Early Blight:</strong> Strobilurin and chlorothalonil products</li>
-                  <li><strong>Scab:</strong> Soil treatments and pH management</li>
+                <h3 className="font-semibold mb-2 text-gray-800 dark:text-gray-200">Disease-Specific Approaches:</h3>
+                <ul className="list-disc pl-5 space-y-1 text-sm text-gray-700 dark:text-gray-300">
+                  <li><strong className="text-gray-800 dark:text-gray-200">Late Blight:</strong> Protective fungicides with different modes of action</li>
+                  <li><strong className="text-gray-800 dark:text-gray-200">Early Blight:</strong> Strobilurin and chlorothalonil products</li>
+                  <li><strong className="text-gray-800 dark:text-gray-200">Scab:</strong> Soil treatments and pH management</li>
                 </ul>
               </CardContent>
             </Card>
