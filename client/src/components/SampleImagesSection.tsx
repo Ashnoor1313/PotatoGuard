@@ -67,7 +67,7 @@ export function SampleImagesSection() {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {sampleImages.map((image) => (
-          <Card key={image.filename} className="border overflow-hidden bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-900/30 border-green-200 dark:border-green-800/30">
+          <Card key={image.filename} className="border overflow-hidden bg-white dark:bg-gray-800 border-green-200 dark:border-green-800/30">
             <div className="p-4">
               <h3 className="text-lg font-bold text-green-700 dark:text-green-400">{image.name}</h3>
               <p className="text-gray-600 dark:text-gray-300 text-sm mt-2">{image.description}</p>
@@ -79,7 +79,7 @@ export function SampleImagesSection() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="p-4 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border-t border-gray-100 dark:border-gray-700">
+            <div className="p-4 bg-white dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700">
               <Button 
                 onClick={() => handleDownload(image.image, image.filename)}
                 className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white"

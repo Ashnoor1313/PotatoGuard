@@ -111,7 +111,7 @@ export default function Analyzer() {
             </TabsContent>
             
             <TabsContent value="samples" className="space-y-6">
-              <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-green-100 dark:border-green-900">
+              <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8 border border-green-100 dark:border-green-800">
                 <SampleImagesSection />
               </div>
             </TabsContent>
