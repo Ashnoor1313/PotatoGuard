@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { DiseaseSection } from "@/components/DiseaseSection";
 import { Button } from "@/components/ui/button";
 import { Clock, InfoIcon } from "lucide-react";
 
@@ -83,6 +84,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+        
+        {/* Disease Section */}
+        <DiseaseSection />
         
         {/* CTA Section */}
         <section className="py-16 bg-accent dark:bg-black border-t dark:border-gray-800">
