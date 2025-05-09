@@ -9,23 +9,23 @@ interface DiseaseSectionProps {
 }
 
 export function DiseaseSection({ showViewAllButton = true, hideHeader = false }: DiseaseSectionProps) {
-  // Define diseases with image URLs
+  // Define diseases with image URLs - using the same URLs as in the Diseases page for consistency
   const diseases = [
     {
       name: "Late Blight",
       scientificName: "Phytophthora infestans",
-      imageSrc: "https://extension.umn.edu/sites/extension.umn.edu/files/styles/width_1200/public/Potato-late-blight-leaf-lesions.jpg?itok=QJ5Uim-H",
+      imageSrc: "https://i.imgur.com/TPrXpgG.jpg",
       description: "Late Blight is one of the most destructive potato diseases. It caused the Irish potato famine in the 1840s. Symptoms include dark, water-soaked lesions on leaves that quickly turn brown and black with a pale green border. White mold may appear on leaf undersides in humid conditions."
     },
     {
       name: "Early Blight",
       scientificName: "Alternaria solani",
-      imageSrc: "https://extension.oregonstate.edu/sites/default/files/styles/article_full/public/images/2018-11/img1820.jpg?itok=xdvLVVeR",
+      imageSrc: "https://i.imgur.com/MwEMIIc.jpg",
       description: "Early Blight typically appears as target-shaped dark brown spots with concentric rings on lower, older leaves first. The disease progresses upward, causing leaf yellowing and defoliation. Spots are often surrounded by a yellow halo and may coalesce as they enlarge."
     },
     {
       name: "Healthy Plant",
-      imageSrc: "https://vegcropshotline.org/wp-content/uploads/2022/06/Picture10.jpg",
+      imageSrc: "https://i.imgur.com/1vrQIlD.jpg",
       description: "Healthy potato plants have vibrant green leaves with no signs of spots, lesions, or discoloration. The foliage is full and shows no wilting or curling. Proper identification of healthy plant characteristics helps in early detection of diseases."
     }
   ];

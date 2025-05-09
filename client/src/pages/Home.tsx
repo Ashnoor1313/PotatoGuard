@@ -86,7 +86,7 @@ export default function Home() {
         </section>
         
         {/* Disease Section */}
-        <DiseaseSection />
+        <DiseaseSection hideHeader={false} />
         
         {/* CTA Section */}
         <section className="py-16 bg-accent dark:bg-black border-t dark:border-gray-800">
