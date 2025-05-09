@@ -210,22 +210,22 @@ export function Footer() {
         
         {/* Copyright */}
         <div className="border-t border-green-800/30 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center mb-4 md:mb-0">
+          <div className="flex flex-col items-center text-center space-y-4">
+            <div className="flex items-center">
               <Leaf className="h-5 w-5 text-green-500 mr-2" />
               <p className="text-gray-300 text-sm">
                 &copy; {currentYear} <span className="text-green-400 font-medium">PotatoGuard</span>. All rights reserved.
               </p>
             </div>
-            <div className="flex flex-wrap items-center justify-center gap-6">
-              <a href="mailto:info@potatoguard.com" className="text-gray-400 hover:text-green-300 transition-colors text-sm flex items-center">
-                <Mail className="h-4 w-4 mr-2" />
-                info@potatoguard.com
-              </a>
-              <div className="flex items-center text-gray-500 text-sm">
-                <span className="h-1 w-1 rounded-full bg-green-500 mr-2"></span>
-                Powered by AI and FastAPI
-              </div>
+            
+            <a href="mailto:info@potatoguard.com" className="text-gray-400 hover:text-green-300 transition-colors text-sm flex items-center">
+              <Mail className="h-4 w-4 mr-2" />
+              info@potatoguard.com
+            </a>
+            
+            <div className="flex items-center text-gray-500 text-sm">
+              <span className="h-1 w-1 rounded-full bg-green-500 mr-2"></span>
+              Powered by AI and FastAPI
             </div>
           </div>
         </div>
