@@ -20,7 +20,7 @@ export function DiseaseSection({ showViewAllButton = true, hideHeader = false }:
     {
       name: "Early Blight",
       scientificName: "Alternaria solani",
-      imageSrc: "https://i.imgur.com/MwEMIIc.jpg",
+      imageSrc: "https://i.imgur.com/wM1ZnXF.jpg", // Updated image for Early Blight
       description: "Early Blight typically appears as target-shaped dark brown spots with concentric rings on lower, older leaves first. The disease progresses upward, causing leaf yellowing and defoliation. Spots are often surrounded by a yellow halo and may coalesce as they enlarge."
     },
     {
