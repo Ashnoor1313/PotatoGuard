@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 import {
   Card,
   CardContent,
@@ -533,12 +534,7 @@ export default function Learning() {
         </div>
       </main>
       
-      <footer className="bg-neutral-darkest text-white py-8">
-        <div className="container mx-auto px-4 text-center">
-          <p>&copy; {new Date().getFullYear()} PotatoGuard. All rights reserved.</p>
-          <p className="text-sm mt-2 text-white/70">Powered by AI and FastAPI.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
