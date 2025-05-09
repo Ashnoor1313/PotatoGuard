@@ -9,6 +9,7 @@ import Analyzer from "@/pages/Analyzer";
 import Guide from "@/pages/Guide";
 import Diseases from "@/pages/Diseases";
 import Prevention from "@/pages/Prevention";
+import Learning from "@/pages/Learning";
 
 function Router() {
   return (
@@ -18,6 +19,7 @@ function Router() {
       <Route path="/guide" component={Guide}/>
       <Route path="/diseases" component={Diseases}/>
       <Route path="/prevention" component={Prevention}/>
+      <Route path="/learning" component={Learning}/>
       <Route component={NotFound} />
     </Switch>
   );
