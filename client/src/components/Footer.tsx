@@ -15,8 +15,8 @@ export function Footer() {
   ];
   
   const resourceLinks = [
-    { title: "Potato Disease Database", href: "https://www.potatodiseases.org", external: true },
-    { title: "University Agriculture Extensions", href: "https://www.extension.org", external: true },
+    { title: "Potato Disease Database", href: "https://potatoes.ahdb.org.uk/agronomy/diseases", external: true },
+    { title: "University Agriculture Extensions", href: "https://extension.psu.edu/potato-diseases", external: true },
     { title: "Crop Protection Network", href: "https://cropprotectionnetwork.org", external: true },
   ];
 
@@ -44,16 +44,16 @@ export function Footer() {
               AI-powered potato disease detection and management system helping farmers identify and treat crop diseases efficiently.
             </p>
             <div className="flex space-x-4 text-gray-400">
-              <a href="#" className="hover:text-primary transition-colors">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="hover:text-primary transition-colors">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="hover:text-primary transition-colors">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="hover:text-primary transition-colors">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                 <Github className="h-5 w-5" />
               </a>
             </div>

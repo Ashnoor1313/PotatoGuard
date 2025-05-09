@@ -10,6 +10,10 @@ import Guide from "@/pages/Guide";
 import Diseases from "@/pages/Diseases";
 import Prevention from "@/pages/Prevention";
 import Learning from "@/pages/Learning";
+import About from "@/pages/About";
+import Contact from "@/pages/Contact";
+import Privacy from "@/pages/Privacy";
+import Terms from "@/pages/Terms";
 
 function Router() {
   return (
@@ -20,6 +24,10 @@ function Router() {
       <Route path="/diseases" component={Diseases}/>
       <Route path="/prevention" component={Prevention}/>
       <Route path="/learning" component={Learning}/>
+      <Route path="/about" component={About}/>
+      <Route path="/contact" component={Contact}/>
+      <Route path="/privacy" component={Privacy}/>
+      <Route path="/terms" component={Terms}/>
       <Route component={NotFound} />
     </Switch>
   );
