@@ -9,31 +9,31 @@ interface DiseaseCardProps {
 }
 
 export function DiseaseCard({ name, description, scientificName, type = "lateBlight" }: DiseaseCardProps) {
-  // Generate background gradient based on disease type
+  // Generate background gradient based on disease type - using different shades of green
   const getBgGradient = () => {
     switch (type) {
       case "lateBlight":
-        return "bg-gradient-to-br from-purple-900 via-purple-800 to-purple-700";
+        return "bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-700";
       case "earlyBlight":
-        return "bg-gradient-to-br from-amber-800 via-amber-700 to-amber-600";
+        return "bg-gradient-to-br from-green-800 via-green-700 to-green-600";
       case "healthy":
-        return "bg-gradient-to-br from-green-700 via-green-600 to-green-500";
+        return "bg-gradient-to-br from-lime-700 via-lime-600 to-lime-500";
       default:
-        return "bg-gradient-to-br from-gray-700 via-gray-600 to-gray-500";
+        return "bg-gradient-to-br from-teal-700 via-teal-600 to-teal-500";
     }
   };
   
-  // Select icon based on disease type
+  // Select icon based on disease type - with green-themed colors
   const renderIcon = () => {
     switch (type) {
       case "lateBlight":
-        return <AlertTriangle className="w-12 h-12 text-purple-300 mb-3" />;
+        return <AlertTriangle className="w-12 h-12 text-emerald-300 mb-3" />;
       case "earlyBlight":
-        return <Leaf className="w-12 h-12 text-amber-300 mb-3" />;
+        return <Leaf className="w-12 h-12 text-green-300 mb-3" />;
       case "healthy":
-        return <CheckCircle className="w-12 h-12 text-green-300 mb-3" />;
+        return <CheckCircle className="w-12 h-12 text-lime-300 mb-3" />;
       default:
-        return <Leaf className="w-12 h-12 text-gray-300 mb-3" />;
+        return <Leaf className="w-12 h-12 text-teal-300 mb-3" />;
     }
   };
 
