@@ -1,10 +1,47 @@
 import { Link, useLocation } from "wouter";
-import { Leaf } from "lucide-react";
-import { ModeToggle } from "@/components/ModeToggle";
+import { Moon, Leaf, Sun } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
+
+// Simple theme toggle component
+function ModeToggle() {
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+
+  useEffect(() => {
+    const isDark = document.documentElement.classList.contains("dark");
+    setTheme(isDark ? "dark" : "light");
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    
+    if (newTheme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  };
+
+  return (
+    <Button
+      variant="ghost"
+      size="icon"
+      onClick={toggleTheme}
+      className="rounded-full bg-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/30"
+    >
+      {theme === "light" ? (
+        <Moon className="h-5 w-5" />
+      ) : (
+        <Sun className="h-5 w-5" />
+      )}
+      <span className="sr-only">Toggle theme</span>
+    </Button>
+  );
+}
 
 export function Navbar() {
   const [location] = useLocation();
-
   const isActive = (path: string) => location === path;
 
   return (
@@ -12,39 +49,39 @@ export function Navbar() {
       <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
         <div className="flex items-center mb-4 md:mb-0">
           <Link href="/">
-            <a className="flex items-center space-x-2 text-white">
+            <div className="flex items-center space-x-2 text-white cursor-pointer">
               <Leaf className="h-6 w-6" />
               <span className="text-xl font-bold">PotatoGuard</span>
-            </a>
+            </div>
           </Link>
           <p className="text-xs ml-2 text-primary-foreground/80">AI-Powered Disease Detection</p>
         </div>
         
         <div className="flex items-center space-x-6">
           <Link href="/">
-            <a className={`text-sm font-medium ${isActive("/") ? "text-white underline decoration-2 underline-offset-4" : "text-primary-foreground/90 hover:text-white"}`}>
+            <span className={`text-sm font-medium cursor-pointer ${isActive("/") ? "text-white underline decoration-2 underline-offset-4" : "text-primary-foreground/90 hover:text-white"}`}>
               Home
-            </a>
+            </span>
           </Link>
           <Link href="/analyzer">
-            <a className={`text-sm font-medium ${isActive("/analyzer") ? "text-white underline decoration-2 underline-offset-4" : "text-primary-foreground/90 hover:text-white"}`}>
+            <span className={`text-sm font-medium cursor-pointer ${isActive("/analyzer") ? "text-white underline decoration-2 underline-offset-4" : "text-primary-foreground/90 hover:text-white"}`}>
               Analyzer
-            </a>
+            </span>
           </Link>
           <Link href="/guide">
-            <a className={`text-sm font-medium ${isActive("/guide") ? "text-white underline decoration-2 underline-offset-4" : "text-primary-foreground/90 hover:text-white"}`}>
+            <span className={`text-sm font-medium cursor-pointer ${isActive("/guide") ? "text-white underline decoration-2 underline-offset-4" : "text-primary-foreground/90 hover:text-white"}`}>
               Guide
-            </a>
+            </span>
           </Link>
           <Link href="/diseases">
-            <a className={`text-sm font-medium ${isActive("/diseases") ? "text-white underline decoration-2 underline-offset-4" : "text-primary-foreground/90 hover:text-white"}`}>
+            <span className={`text-sm font-medium cursor-pointer ${isActive("/diseases") ? "text-white underline decoration-2 underline-offset-4" : "text-primary-foreground/90 hover:text-white"}`}>
               Diseases
-            </a>
+            </span>
           </Link>
           <Link href="/prevention">
-            <a className={`text-sm font-medium ${isActive("/prevention") ? "text-white underline decoration-2 underline-offset-4" : "text-primary-foreground/90 hover:text-white"}`}>
+            <span className={`text-sm font-medium cursor-pointer ${isActive("/prevention") ? "text-white underline decoration-2 underline-offset-4" : "text-primary-foreground/90 hover:text-white"}`}>
               Prevention
-            </a>
+            </span>
           </Link>
           <ModeToggle />
         </div>

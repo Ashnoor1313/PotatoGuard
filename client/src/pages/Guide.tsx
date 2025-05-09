@@ -152,7 +152,7 @@ export default function Guide() {
                       <CheckCircle className="h-6 w-6 text-green-600" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold mb-2">High Confidence (>80%)</h3>
+                      <h3 className="text-lg font-bold mb-2">High Confidence (Above 80%)</h3>
                       <p>When our system shows high confidence in a diagnosis, it's very likely accurate. You should proceed with the recommended treatments.</p>
                     </div>
                   </div>
