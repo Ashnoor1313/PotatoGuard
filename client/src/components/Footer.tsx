@@ -28,9 +28,9 @@ export function Footer() {
   ];
   
   return (
-    <footer className="bg-gradient-to-b from-green-900 to-green-950 text-white pt-16 pb-8 relative overflow-hidden">
+    <footer className="bg-gradient-to-b from-green-950 via-green-950 to-black text-white pt-16 pb-8 relative overflow-hidden">
       {/* Background pattern overlay */}
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-3">
         <div className="h-full w-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJ3aGl0ZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMzYgMzBjMC02LjYyNy01LjM3My0xMi0xMi0xMlMxMiAyMy4zNzMgMTIgMzBzNS4zNzMgMTIgMTIgMTIgMTItNS4zNzMgMTItMTJ6Ii8+PC9nPjwvc3ZnPg==')] bg-repeat"></div>
       </div>
       
@@ -121,7 +121,7 @@ export function Footer() {
         </div>
         
         {/* Newsletter */}
-        <div className="border-t border-green-800/40 pt-10 mb-10">
+        <div className="border-t border-green-900/60 pt-10 mb-10">
           <div className="max-w-xl mx-auto text-center">
             <h3 className="text-lg font-semibold mb-3 text-green-300">Stay Updated</h3>
             <p className="text-gray-300 text-sm mb-5">
@@ -131,7 +131,7 @@ export function Footer() {
               <input 
                 type="email" 
                 placeholder="Your email address" 
-                className="flex-grow px-4 py-2 bg-green-950/50 border border-green-800/40 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent"
+                className="flex-grow px-4 py-2 bg-black/40 border border-green-900/60 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent"
               />
               <Button className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-200">
                 Subscribe
@@ -141,7 +141,7 @@ export function Footer() {
         </div>
         
         {/* Copyright */}
-        <div className="border-t border-green-800/40 pt-8">
+        <div className="border-t border-green-900/60 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
               &copy; {currentYear} PotatoGuard. All rights reserved.
