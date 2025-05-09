@@ -1,23 +1,69 @@
-import { users, type User, type InsertUser } from "@shared/schema";
+import { users, predictions, type User, type InsertUser, type Prediction, type InsertPrediction } from "@shared/schema";
+import { db, isDatabaseAvailable } from "./db";
+import { eq, desc } from "drizzle-orm";
 
-// modify the interface with any CRUD methods
-// you might need
-
+// Interface with CRUD methods
 export interface IStorage {
+  // User methods
   getUser(id: number): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
+  
+  // Prediction methods
+  createPrediction(prediction: InsertPrediction): Promise<Prediction>;
+  getPredictions(limit?: number): Promise<Prediction[]>;
+  getPrediction(id: number): Promise<Prediction | undefined>;
 }
 
+// Database implementation of storage
+export class DatabaseStorage implements IStorage {
+  // User methods
+  async getUser(id: number): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user || undefined;
+  }
+
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.username, username));
+    return user || undefined;
+  }
+
+  async createUser(insertUser: InsertUser): Promise<User> {
+    const [user] = await db.insert(users).values(insertUser).returning();
+    return user;
+  }
+
+  // Prediction methods
+  async createPrediction(prediction: InsertPrediction): Promise<Prediction> {
+    const [newPrediction] = await db.insert(predictions).values(prediction).returning();
+    return newPrediction;
+  }
+
+  async getPredictions(limit = 10): Promise<Prediction[]> {
+    return await db.select().from(predictions).limit(limit).orderBy((cols) => cols.id).execute();
+  }
+
+  async getPrediction(id: number): Promise<Prediction | undefined> {
+    const [prediction] = await db.select().from(predictions).where(eq(predictions.id, id));
+    return prediction || undefined;
+  }
+}
+
+// In-memory storage fallback for development
 export class MemStorage implements IStorage {
   private users: Map<number, User>;
-  currentId: number;
+  private predictionsMap: Map<number, Prediction>;
+  userCurrentId: number;
+  predictionCurrentId: number;
 
   constructor() {
     this.users = new Map();
-    this.currentId = 1;
+    this.predictionsMap = new Map();
+    this.userCurrentId = 1;
+    this.predictionCurrentId = 1;
   }
 
+  // User methods
   async getUser(id: number): Promise<User | undefined> {
     return this.users.get(id);
   }
@@ -29,11 +75,32 @@ export class MemStorage implements IStorage {
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    const id = this.currentId++;
+    const id = this.userCurrentId++;
     const user: User = { ...insertUser, id };
     this.users.set(id, user);
     return user;
   }
+
+  // Prediction methods
+  async createPrediction(insertPrediction: InsertPrediction): Promise<Prediction> {
+    const id = this.predictionCurrentId++;
+    const prediction: Prediction = { ...insertPrediction, id };
+    this.predictionsMap.set(id, prediction);
+    return prediction;
+  }
+
+  async getPredictions(limit = 10): Promise<Prediction[]> {
+    return Array.from(this.predictionsMap.values())
+      .sort((a, b) => b.id - a.id)
+      .slice(0, limit);
+  }
+
+  async getPrediction(id: number): Promise<Prediction | undefined> {
+    return this.predictionsMap.get(id);
+  }
 }
 
-export const storage = new MemStorage();
+// Use database storage if DATABASE_URL is available, otherwise use in-memory storage
+export const storage = process.env.DATABASE_URL 
+  ? new DatabaseStorage() 
+  : new MemStorage();
