@@ -57,38 +57,50 @@ export function Footer() {
             <p className="text-gray-300 text-sm mb-6 leading-relaxed">
               AI-powered potato disease detection and management system helping farmers identify and treat crop diseases efficiently.
             </p>
-            <div className="flex space-x-3">
+            <div className="flex flex-col space-y-3">
               <a 
                 href="https://facebook.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="h-9 w-9 rounded-full flex items-center justify-center bg-green-900/50 border border-green-800/30 text-green-400 hover:bg-green-800/50 transition-colors"
+                className="flex items-center space-x-3 text-gray-300 hover:text-green-400 transition-colors"
               >
-                <Facebook className="h-4 w-4" />
+                <div className="h-8 w-8 rounded-full flex items-center justify-center bg-green-900/50 border border-green-800/30">
+                  <Facebook className="h-4 w-4 text-green-400" />
+                </div>
+                <span className="text-sm">Facebook</span>
               </a>
               <a 
                 href="https://twitter.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="h-9 w-9 rounded-full flex items-center justify-center bg-green-900/50 border border-green-800/30 text-green-400 hover:bg-green-800/50 transition-colors"
+                className="flex items-center space-x-3 text-gray-300 hover:text-green-400 transition-colors"
               >
-                <Twitter className="h-4 w-4" />
+                <div className="h-8 w-8 rounded-full flex items-center justify-center bg-green-900/50 border border-green-800/30">
+                  <Twitter className="h-4 w-4 text-green-400" />
+                </div>
+                <span className="text-sm">Twitter</span>
               </a>
               <a 
                 href="https://instagram.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="h-9 w-9 rounded-full flex items-center justify-center bg-green-900/50 border border-green-800/30 text-green-400 hover:bg-green-800/50 transition-colors"
+                className="flex items-center space-x-3 text-gray-300 hover:text-green-400 transition-colors"
               >
-                <Instagram className="h-4 w-4" />
+                <div className="h-8 w-8 rounded-full flex items-center justify-center bg-green-900/50 border border-green-800/30">
+                  <Instagram className="h-4 w-4 text-green-400" />
+                </div>
+                <span className="text-sm">Instagram</span>
               </a>
               <a 
                 href="https://github.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="h-9 w-9 rounded-full flex items-center justify-center bg-green-900/50 border border-green-800/30 text-green-400 hover:bg-green-800/50 transition-colors"
+                className="flex items-center space-x-3 text-gray-300 hover:text-green-400 transition-colors"
               >
-                <Github className="h-4 w-4" />
+                <div className="h-8 w-8 rounded-full flex items-center justify-center bg-green-900/50 border border-green-800/30">
+                  <Github className="h-4 w-4 text-green-400" />
+                </div>
+                <span className="text-sm">GitHub</span>
               </a>
             </div>
           </div>
