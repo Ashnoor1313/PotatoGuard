@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { ImageUploader } from "@/components/ImageUploader";
 import { ResultsSection } from "@/components/ResultsSection";
 import { PredictionGallery } from "@/components/PredictionGallery";
+import { SampleImagesSection } from "@/components/SampleImagesSection";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ClassificationResult } from "@/types";
 
@@ -62,9 +63,10 @@ export default function Analyzer() {
 
           {/* Main Content Section */}
           <Tabs defaultValue="analyzer" className="w-full space-y-8">
-            <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 bg-white/70 dark:bg-gray-800/50 p-1 rounded-xl border border-green-100 dark:border-green-900/40 shadow-md">
+            <TabsList className="grid w-full max-w-md mx-auto grid-cols-3 bg-white/70 dark:bg-gray-800/50 p-1 rounded-xl border border-green-100 dark:border-green-900/40 shadow-md">
               <TabsTrigger value="analyzer" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-green-500 data-[state=active]:to-green-600 data-[state=active]:text-white rounded-lg py-3">Leaf Analyzer</TabsTrigger>
               <TabsTrigger value="gallery" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-green-500 data-[state=active]:to-green-600 data-[state=active]:text-white rounded-lg py-3">Prediction History</TabsTrigger>
+              <TabsTrigger value="samples" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-green-500 data-[state=active]:to-green-600 data-[state=active]:text-white rounded-lg py-3">Sample Images</TabsTrigger>
             </TabsList>
             
             <TabsContent value="analyzer" className="space-y-6">
@@ -105,6 +107,12 @@ export default function Analyzer() {
                 </div>
                 
                 <PredictionGallery limit={9} />
+              </div>
+            </TabsContent>
+            
+            <TabsContent value="samples" className="space-y-6">
+              <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-green-100 dark:border-green-900">
+                <SampleImagesSection />
               </div>
             </TabsContent>
           </Tabs>
