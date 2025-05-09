@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { AlertCircle, CheckCircle, FileText } from "lucide-react";
 import { DiseaseInfo } from "@/components/DiseaseInfo";
+import { ConfidenceChart } from "@/components/ConfidenceChart";
 import { ClassificationResult } from "@/types";
 
 interface ResultsSectionProps {
@@ -97,43 +98,15 @@ export function ResultsSection({
                 </div>
                 <div className="w-full">
                   <h3 className="text-lg font-semibold dark:text-white">{primaryResult.class}</h3>
-                  <div className="mt-2">
-                    <div className="flex items-center">
-                      <span className="text-sm font-medium mr-2 dark:text-gray-300">Confidence:</span>
-                      <span className="text-sm font-semibold dark:text-white">{(primaryResult.confidence * 100).toFixed(1)}%</span>
-                    </div>
-                    <div className="h-2 mt-1 bg-neutral-medium dark:bg-gray-700 rounded-full overflow-hidden">
-                      <div 
-                        className="h-full bg-primary" 
-                        style={{ width: `${primaryResult.confidence * 100}%` }}
-                      ></div>
-                    </div>
-                  </div>
+                  <p className="text-sm text-neutral-dark dark:text-gray-300 mt-1">
+                    Confidence: <span className="font-semibold dark:text-white">{(primaryResult.confidence * 100).toFixed(1)}%</span>
+                  </p>
                 </div>
               </div>
             </div>
             
-            {/* Alternative Predictions */}
-            {alternatives.length > 0 && (
-              <>
-                <h3 className="text-md font-medium mb-2 dark:text-white">Alternative Predictions</h3>
-                
-                {alternatives.map((alternative, index) => (
-                  <div key={index} className="border border-neutral-medium dark:border-gray-700 rounded-lg p-3 mb-2">
-                    <div className="flex justify-between items-center">
-                      <span className="font-medium text-neutral-darkest dark:text-white">{alternative.class}</span>
-                      <span className="text-sm font-semibold dark:text-gray-300">{(alternative.confidence * 100).toFixed(1)}%</span>
-                    </div>
-                    <div className="h-2 mt-1 bg-neutral-medium dark:bg-gray-700 rounded-full overflow-hidden">
-                      <div 
-                        className="h-full bg-secondary" 
-                        style={{ width: `${alternative.confidence * 100}%` }}
-                      ></div>
-                    </div>
-                  </div>
-                ))}
-              </>
-            )}
+            {/* Confidence Visualization */}
+            <ConfidenceChart predictions={results.predictions} />
           </CardContent>
         </Card>
         

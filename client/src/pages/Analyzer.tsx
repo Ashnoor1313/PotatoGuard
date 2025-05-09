@@ -3,6 +3,8 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ImageUploader } from "@/components/ImageUploader";
 import { ResultsSection } from "@/components/ResultsSection";
+import { PredictionGallery } from "@/components/PredictionGallery";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ClassificationResult } from "@/types";
 
 export default function Analyzer() {
@@ -49,30 +51,50 @@ export default function Analyzer() {
           </header>
 
           {/* Main Content Section */}
-          <div className="flex flex-col lg:flex-row gap-8">
-            {/* Upload Section */}
-            <section className="w-full lg:w-1/2 flex flex-col space-y-6">
-              <ImageUploader 
-                selectedFile={selectedFile}
-                previewUrl={previewUrl}
-                onFileSelect={handleFileSelect}
-                onRemoveImage={handleRemoveImage}
-                onAnalyzeImage={() => setIsAnalyzing(true)}
-                isAnalyzing={isAnalyzing}
-                setIsAnalyzing={setIsAnalyzing}
-                setResults={setResults}
-                setError={setError}
-              />
-            </section>
+          <Tabs defaultValue="analyzer" className="w-full space-y-6">
+            <TabsList className="grid w-full max-w-md mx-auto grid-cols-2">
+              <TabsTrigger value="analyzer">Leaf Analyzer</TabsTrigger>
+              <TabsTrigger value="gallery">Prediction History</TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="analyzer" className="space-y-6">
+              <div className="flex flex-col lg:flex-row gap-8">
+                {/* Upload Section */}
+                <section className="w-full lg:w-1/2 flex flex-col space-y-6">
+                  <ImageUploader 
+                    selectedFile={selectedFile}
+                    previewUrl={previewUrl}
+                    onFileSelect={handleFileSelect}
+                    onRemoveImage={handleRemoveImage}
+                    onAnalyzeImage={() => setIsAnalyzing(true)}
+                    isAnalyzing={isAnalyzing}
+                    setIsAnalyzing={setIsAnalyzing}
+                    setResults={setResults}
+                    setError={setError}
+                  />
+                </section>
 
-            {/* Results Section */}
-            <ResultsSection 
-              isAnalyzing={isAnalyzing}
-              results={results}
-              error={error}
-              onTryAgain={handleTryAgain}
-            />
-          </div>
+                {/* Results Section */}
+                <ResultsSection 
+                  isAnalyzing={isAnalyzing}
+                  results={results}
+                  error={error}
+                  onTryAgain={handleTryAgain}
+                />
+              </div>
+            </TabsContent>
+            
+            <TabsContent value="gallery" className="space-y-6">
+              <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md p-6">
+                <h2 className="text-2xl font-bold text-primary mb-6">Previous Predictions</h2>
+                <p className="text-neutral-dark dark:text-gray-300 mb-8">
+                  View your past potato leaf analyses and their results
+                </p>
+                
+                <PredictionGallery limit={9} />
+              </div>
+            </TabsContent>
+          </Tabs>
         </div>
       </main>
       
