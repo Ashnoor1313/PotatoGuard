@@ -1,9 +1,10 @@
-import type { Express } from "express";
+import type { Express, Request, Response } from "express";
 import { createServer, type Server } from "http";
 import multer from "multer";
 import path from "path";
 import fs from "fs";
 import { predictPotatoDisease } from "./ml-model";
+import { storage as dataStorage } from "./storage";
 
 // Configure multer for file uploads
 const storage = multer.memoryStorage();
@@ -50,6 +51,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
         // Process the image with our model
         const predictions = await predictPotatoDisease(filePath);
         
+        // Store prediction in database
+        try {
+          const primaryPrediction = predictions[0]; // Highest confidence prediction
+          await dataStorage.createPrediction({
+            imageFilename: fileName,
+            primaryClass: primaryPrediction.class,
+            primaryConfidence: primaryPrediction.confidence.toString(),
+            allPredictions: JSON.stringify(predictions),
+            timestamp: new Date().toISOString(),
+          });
+        } catch (dbError) {
+          console.warn("Failed to save prediction to database:", dbError);
+          // Continue anyway - we don't want to fail the request if storage fails
+        }
+        
         // Return predictions
         res.json({
           success: true,
@@ -66,6 +82,50 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ 
         success: false, 
         message: error instanceof Error ? error.message : "An error occurred while processing the image" 
+      });
+    }
+  });
+
+  // API endpoint to get prediction history
+  app.get("/api/predictions", async (req, res) => {
+    try {
+      const limit = req.query.limit ? parseInt(req.query.limit as string) : 10;
+      const predictions = await dataStorage.getPredictions(limit);
+      res.json({
+        success: true,
+        predictions
+      });
+    } catch (error) {
+      console.error("Error fetching predictions:", error);
+      res.status(500).json({
+        success: false,
+        message: error instanceof Error ? error.message : "An error occurred while fetching predictions"
+      });
+    }
+  });
+
+  // API endpoint to get a single prediction by ID
+  app.get("/api/predictions/:id", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const prediction = await dataStorage.getPrediction(id);
+      
+      if (!prediction) {
+        return res.status(404).json({
+          success: false,
+          message: "Prediction not found"
+        });
+      }
+      
+      res.json({
+        success: true,
+        prediction
+      });
+    } catch (error) {
+      console.error("Error fetching prediction:", error);
+      res.status(500).json({
+        success: false,
+        message: error instanceof Error ? error.message : "An error occurred while fetching the prediction"
       });
     }
   });

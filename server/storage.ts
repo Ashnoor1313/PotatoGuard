@@ -19,31 +19,40 @@ export interface IStorage {
 export class DatabaseStorage implements IStorage {
   // User methods
   async getUser(id: number): Promise<User | undefined> {
+    if (!db) throw new Error("Database not available");
     const [user] = await db.select().from(users).where(eq(users.id, id));
     return user || undefined;
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
+    if (!db) throw new Error("Database not available");
     const [user] = await db.select().from(users).where(eq(users.username, username));
     return user || undefined;
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
+    if (!db) throw new Error("Database not available");
     const [user] = await db.insert(users).values(insertUser).returning();
     return user;
   }
 
   // Prediction methods
   async createPrediction(prediction: InsertPrediction): Promise<Prediction> {
+    if (!db) throw new Error("Database not available");
     const [newPrediction] = await db.insert(predictions).values(prediction).returning();
     return newPrediction;
   }
 
   async getPredictions(limit = 10): Promise<Prediction[]> {
-    return await db.select().from(predictions).limit(limit).orderBy((cols) => cols.id).execute();
+    if (!db) throw new Error("Database not available");
+    return await db.select()
+      .from(predictions)
+      .limit(limit)
+      .orderBy(desc(predictions.id));
   }
 
   async getPrediction(id: number): Promise<Prediction | undefined> {
+    if (!db) throw new Error("Database not available");
     const [prediction] = await db.select().from(predictions).where(eq(predictions.id, id));
     return prediction || undefined;
   }
