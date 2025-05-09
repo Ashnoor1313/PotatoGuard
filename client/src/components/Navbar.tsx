@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Moon, Leaf, Sun } from "lucide-react";
+import { Moon, Leaf, Sun, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 
@@ -24,69 +24,106 @@ function ModeToggle() {
   };
 
   return (
-    <Button
-      variant="ghost"
-      size="icon"
+    <button
       onClick={toggleTheme}
-      className="rounded-full bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white"
+      className="text-gray-400 hover:text-white"
     >
       {theme === "light" ? (
-        <Moon className="h-4 w-4" />
+        <Moon className="h-5 w-5" />
       ) : (
-        <Sun className="h-4 w-4" />
+        <Sun className="h-5 w-5" />
       )}
       <span className="sr-only">Toggle theme</span>
-    </Button>
+    </button>
   );
 }
 
 export function Navbar() {
   const [location] = useLocation();
   const isActive = (path: string) => location === path;
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navItems = [
+    { path: "/", label: "Home" },
+    { path: "/analyzer", label: "Analyzer" },
+    { path: "/guide", label: "Guide" },
+    { path: "/diseases", label: "Diseases" },
+    { path: "/prevention", label: "Prevention" }
+  ];
 
   return (
-    <nav className="bg-neutral-900 text-white py-3 shadow-md">
-      <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-        <div className="flex items-center mb-4 md:mb-0">
+    <nav className="bg-black text-white py-3">
+      <div className="container mx-auto px-6">
+        <div className="flex items-center justify-between">
           <Link href="/">
-            <div className="flex items-center space-x-3 text-white cursor-pointer group">
-              <div className="bg-primary rounded-full p-1.5 group-hover:bg-primary/90 transition-colors">
-                <Leaf className="h-5 w-5" />
+            <div className="flex items-center space-x-2 cursor-pointer">
+              <Leaf className="h-7 w-7 text-primary" />
+              <div>
+                <div className="text-xl font-bold text-primary">PotatoGuard</div>
+                <div className="text-xs text-gray-400 mt-[-3px]">AI-Powered Disease Detection</div>
               </div>
-              <span className="text-xl font-bold tracking-tight">PotatoGuard</span>
             </div>
           </Link>
-          <div className="bg-primary/10 px-2 py-0.5 rounded-full ml-3">
-            <p className="text-xs font-medium text-primary">AI-Powered Disease Detection</p>
+          
+          <div className="hidden md:flex items-center space-x-6">
+            {navItems.map((item) => (
+              <Link key={item.path} href={item.path}>
+                <span 
+                  className={`
+                    text-sm font-medium cursor-pointer transition-colors
+                    ${isActive(item.path) 
+                      ? "text-primary" 
+                      : "text-gray-300 hover:text-white"
+                    }
+                  `}
+                >
+                  {item.label}
+                </span>
+              </Link>
+            ))}
+            <div className="ml-2">
+              <ModeToggle />
+            </div>
+          </div>
+          
+          <div className="flex items-center md:hidden">
+            <ModeToggle />
+            <button 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="ml-4 text-gray-400 hover:text-white"
+            >
+              {mobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
           </div>
         </div>
         
-        <div className="flex items-center space-x-1 md:space-x-2">
-          {[
-            { path: "/", label: "Home" },
-            { path: "/analyzer", label: "Analyzer" },
-            { path: "/guide", label: "Guide" },
-            { path: "/diseases", label: "Diseases" },
-            { path: "/prevention", label: "Prevention" }
-          ].map((item) => (
-            <Link key={item.path} href={item.path}>
-              <span 
-                className={`
-                  px-3 py-2 rounded-md text-sm font-medium cursor-pointer transition-colors
-                  ${isActive(item.path) 
-                    ? "bg-primary/20 text-primary" 
-                    : "text-gray-300 hover:bg-gray-800 hover:text-white"
-                  }
-                `}
-              >
-                {item.label}
-              </span>
-            </Link>
-          ))}
-          <div className="ml-2">
-            <ModeToggle />
+        {/* Mobile menu */}
+        {mobileMenuOpen && (
+          <div className="pt-4 pb-3 border-t border-gray-800 mt-3 md:hidden">
+            <div className="space-y-1 px-2">
+              {navItems.map((item) => (
+                <Link key={item.path} href={item.path}>
+                  <div 
+                    className={`
+                      block px-3 py-2 rounded-md text-base font-medium cursor-pointer
+                      ${isActive(item.path) 
+                        ? "bg-gray-900 text-primary" 
+                        : "text-gray-300 hover:bg-gray-700 hover:text-white"
+                      }
+                    `}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </nav>
   );
