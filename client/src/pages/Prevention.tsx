@@ -16,12 +16,12 @@ export default function Prevention() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       
-      <main className="flex-grow bg-[#F5F5F5] py-8">
+      <main className="flex-grow bg-[#F5F5F5] dark:bg-black py-8">
         <div className="container mx-auto px-4 max-w-5xl">
           {/* Header Section */}
           <header className="mb-12 text-center">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Disease Prevention Strategies</h1>
-            <p className="text-lg text-neutral-dark max-w-3xl mx-auto">
+            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-primary dark:text-primary">Disease Prevention Strategies</h1>
+            <p className="text-lg text-neutral-dark dark:text-gray-300 max-w-3xl mx-auto">
               Proactive approaches to protect your potato crop from common diseases
             </p>
           </header>
@@ -35,7 +35,7 @@ export default function Prevention() {
                   <div className="bg-primary rounded-full p-3 text-white">
                     <Sparkles className="h-5 w-5" />
                   </div>
-                  <h2 className="text-xl font-bold text-primary pt-1">Cultural Practices</h2>
+                  <h2 className="text-xl font-bold text-primary dark:text-primary pt-1">Cultural Practices</h2>
                 </div>
                 
                 <ul className="space-y-4">

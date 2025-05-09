@@ -148,12 +148,12 @@ export default function Guide() {
               <Card>
                 <CardContent className="p-6">
                   <div className="flex items-start space-x-4">
-                    <div className="bg-green-100 rounded-full p-2">
-                      <CheckCircle className="h-6 w-6 text-green-600" />
+                    <div className="bg-green-100 dark:bg-green-900 rounded-full p-2">
+                      <CheckCircle className="h-6 w-6 text-green-600 dark:text-green-400" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold mb-2">High Confidence (Above 80%)</h3>
-                      <p>When our system shows high confidence in a diagnosis, it's very likely accurate. You should proceed with the recommended treatments.</p>
+                      <h3 className="text-lg font-bold mb-2 dark:text-white">High Confidence (Above 80%)</h3>
+                      <p className="dark:text-gray-300">When our system shows high confidence in a diagnosis, it's very likely accurate. You should proceed with the recommended treatments.</p>
                     </div>
                   </div>
                 </CardContent>
@@ -162,12 +162,12 @@ export default function Guide() {
               <Card>
                 <CardContent className="p-6">
                   <div className="flex items-start space-x-4">
-                    <div className="bg-amber-100 rounded-full p-2">
-                      <AlertCircle className="h-6 w-6 text-amber-600" />
+                    <div className="bg-amber-100 dark:bg-amber-900 rounded-full p-2">
+                      <AlertCircle className="h-6 w-6 text-amber-600 dark:text-amber-400" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold mb-2">Medium Confidence (50-80%)</h3>
-                      <p>Consider both the primary and alternative diagnoses. If possible, consult with an agricultural expert before treatment.</p>
+                      <h3 className="text-lg font-bold mb-2 dark:text-white">Medium Confidence (50-80%)</h3>
+                      <p className="dark:text-gray-300">Consider both the primary and alternative diagnoses. If possible, consult with an agricultural expert before treatment.</p>
                     </div>
                   </div>
                 </CardContent>
@@ -177,8 +177,8 @@ export default function Guide() {
 
           {/* CTA */}
           <div className="mt-12 text-center">
-            <h2 className="text-2xl font-bold mb-4 text-primary">Ready to Try It?</h2>
-            <p className="mb-6">Upload your first potato leaf image and get instant disease detection</p>
+            <h2 className="text-2xl font-bold mb-4 text-primary dark:text-primary">Ready to Try It?</h2>
+            <p className="mb-6 dark:text-gray-300">Upload your first potato leaf image and get instant disease detection</p>
             <Link href="/analyzer">
               <Button size="lg" className="bg-primary text-white hover:bg-primary/90 flex items-center gap-2">
                 Go to Analyzer
