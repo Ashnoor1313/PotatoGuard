@@ -14,7 +14,7 @@ export function DiseaseSection({ showViewAllButton = true, hideHeader = false }:
     {
       name: "Late Blight",
       scientificName: "Phytophthora infestans",
-      imageSrc: "https://i.imgur.com/TPrXpgG.jpg",
+      imageSrc: "https://i.imgur.com/uNTyVMk.jpg", // Using direct URL for the uploaded late blight image
       description: "Late Blight is one of the most destructive potato diseases. It caused the Irish potato famine in the 1840s. Symptoms include dark, water-soaked lesions on leaves that quickly turn brown and black with a pale green border. White mold may appear on leaf undersides in humid conditions."
     },
     {
