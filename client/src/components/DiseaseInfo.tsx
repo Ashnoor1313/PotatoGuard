@@ -84,21 +84,21 @@ export function DiseaseInfo({ classification }: DiseaseInfoProps) {
   return (
     <Card className="shadow-md">
       <CardContent className="p-6">
-        <h2 className="text-xl font-semibold mb-4 text-neutral-darkest">Disease Information</h2>
+        <h2 className="text-xl font-semibold mb-4 text-neutral-darkest dark:text-white">Disease Information</h2>
         
         <div>
-          <h3 className="text-lg font-medium text-neutral-darkest mb-2">{title}</h3>
-          <p className="text-neutral-darkest mb-3">{description}</p>
+          <h3 className="text-lg font-medium text-neutral-darkest dark:text-white mb-2">{title}</h3>
+          <p className="text-neutral-darkest dark:text-gray-300 mb-3">{description}</p>
           
-          <h4 className="font-medium text-neutral-darkest mt-4 mb-2">Symptoms:</h4>
-          <ul className="list-disc pl-5 space-y-1 text-neutral-darkest">
+          <h4 className="font-medium text-neutral-darkest dark:text-white mt-4 mb-2">Symptoms:</h4>
+          <ul className="list-disc pl-5 space-y-1 text-neutral-darkest dark:text-gray-300">
             {symptoms.map((symptom, index) => (
               <li key={index}>{symptom}</li>
             ))}
           </ul>
           
-          <h4 className="font-medium text-neutral-darkest mt-4 mb-2">Management:</h4>
-          <ul className="list-disc pl-5 space-y-1 text-neutral-darkest">
+          <h4 className="font-medium text-neutral-darkest dark:text-white mt-4 mb-2">Management:</h4>
+          <ul className="list-disc pl-5 space-y-1 text-neutral-darkest dark:text-gray-300">
             {management.map((tip, index) => (
               <li key={index}>{tip}</li>
             ))}

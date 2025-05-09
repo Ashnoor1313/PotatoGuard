@@ -18,12 +18,12 @@ export default function Guide() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       
-      <main className="flex-grow bg-[#F5F5F5] py-8">
+      <main className="flex-grow bg-[#F5F5F5] dark:bg-black py-8">
         <div className="container mx-auto px-4 max-w-4xl">
           {/* Header Section */}
           <header className="mb-12 text-center">
             <h1 className="text-3xl md:text-4xl font-bold mb-4 text-primary">How PotatoGuard Works</h1>
-            <p className="text-lg text-neutral-dark max-w-3xl mx-auto">
+            <p className="text-lg text-neutral-dark dark:text-gray-300 max-w-3xl mx-auto">
               Learn how our AI-powered potato disease detection system helps farmers identify and treat plant diseases quickly and accurately.
             </p>
           </header>
@@ -40,8 +40,8 @@ export default function Guide() {
                   </div>
                   <div>
                     <h2 className="text-2xl font-bold mb-3 text-primary">Step 1: Take a Clear Photo</h2>
-                    <p className="mb-4">Take a clear, well-lit photo of the potato leaf showing symptoms of potential disease. For best results:</p>
-                    <ul className="list-disc pl-5 space-y-2">
+                    <p className="mb-4 dark:text-gray-300">Take a clear, well-lit photo of the potato leaf showing symptoms of potential disease. For best results:</p>
+                    <ul className="list-disc pl-5 space-y-2 dark:text-gray-300">
                       <li>Ensure adequate lighting (natural daylight works best)</li>
                       <li>Capture the entire leaf with symptoms visible</li>
                       <li>Avoid shadows or reflections on the leaf</li>
@@ -62,8 +62,8 @@ export default function Guide() {
                   </div>
                   <div>
                     <h2 className="text-2xl font-bold mb-3 text-primary">Step 2: Upload Your Image</h2>
-                    <p className="mb-4">Go to the Analyzer page and upload your potato leaf image:</p>
-                    <ul className="list-disc pl-5 space-y-2">
+                    <p className="mb-4 dark:text-gray-300">Go to the Analyzer page and upload your potato leaf image:</p>
+                    <ul className="list-disc pl-5 space-y-2 dark:text-gray-300">
                       <li>Click on the upload area or drag and drop your image</li>
                       <li>Verify your image appears in the preview</li>
                       <li>Click "Analyze Image" to begin processing</li>
@@ -83,8 +83,8 @@ export default function Guide() {
                   </div>
                   <div>
                     <h2 className="text-2xl font-bold mb-3 text-primary">Step 3: AI Analysis</h2>
-                    <p className="mb-4">Our advanced Convolutional Neural Network (CNN) processes your image:</p>
-                    <ul className="list-disc pl-5 space-y-2">
+                    <p className="mb-4 dark:text-gray-300">Our advanced Convolutional Neural Network (CNN) processes your image:</p>
+                    <ul className="list-disc pl-5 space-y-2 dark:text-gray-300">
                       <li>The image is analyzed by our AI model trained on thousands of potato leaf images</li>
                       <li>The system identifies patterns associated with different potato diseases</li>
                       <li>Multiple potential diseases are evaluated and ranked by confidence level</li>
@@ -105,8 +105,8 @@ export default function Guide() {
                   </div>
                   <div>
                     <h2 className="text-2xl font-bold mb-3 text-primary">Step 4: Review Results</h2>
-                    <p className="mb-4">Receive detailed analysis of your potato leaf:</p>
-                    <ul className="list-disc pl-5 space-y-2">
+                    <p className="mb-4 dark:text-gray-300">Receive detailed analysis of your potato leaf:</p>
+                    <ul className="list-disc pl-5 space-y-2 dark:text-gray-300">
                       <li>Primary disease classification with confidence level</li>
                       <li>Alternative possibilities with their respective confidence levels</li>
                       <li>Disease information including symptoms and characteristics</li>
@@ -127,8 +127,8 @@ export default function Guide() {
                   </div>
                   <div>
                     <h2 className="text-2xl font-bold mb-3 text-primary">Step 5: Take Action</h2>
-                    <p className="mb-4">Based on the results, you can:</p>
-                    <ul className="list-disc pl-5 space-y-2">
+                    <p className="mb-4 dark:text-gray-300">Based on the results, you can:</p>
+                    <ul className="list-disc pl-5 space-y-2 dark:text-gray-300">
                       <li>Apply the recommended treatments for the identified disease</li>
                       <li>Implement prevention measures to protect healthy plants</li>
                       <li>Monitor affected plants and their response to treatment</li>
@@ -142,7 +142,7 @@ export default function Guide() {
 
           {/* Accuracy Information */}
           <div className="mt-12 mb-8">
-            <h2 className="text-2xl font-bold mb-6 text-center text-primary">Understanding Results</h2>
+            <h2 className="text-2xl font-bold mb-6 text-center text-primary dark:text-primary">Understanding Results</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Card>
