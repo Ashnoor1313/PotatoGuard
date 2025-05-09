@@ -85,7 +85,7 @@ export function SampleImagesSection() {
   
   const handleDownload = (filename: string) => {
     const link = document.createElement('a');
-    link.href = `/public/sample-images/${filename}`;
+    link.href = `/sample-images/${filename}`;
     link.download = filename;
     document.body.appendChild(link);
     link.click();
@@ -116,7 +116,7 @@ export function SampleImagesSection() {
             </div>
             <div className="h-48 overflow-hidden relative">
               <img 
-                src={`/public/sample-images/${image.filename}`} 
+                src={`/sample-images/${image.filename}`} 
                 alt={image.name}
                 className="w-full h-full object-cover"
               />
