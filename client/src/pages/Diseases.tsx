@@ -20,26 +20,8 @@ export default function Diseases() {
             </p>
           </header>
 
-          {/* Disease Cards Section - Directly using the cards without the heading from DiseaseSection */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            <DiseaseCard 
-              name="Late Blight"
-              scientificName="Phytophthora infestans"
-              imageSrc="https://i.imgur.com/TPrXpgG.jpg"
-              description="Late Blight is one of the most destructive potato diseases. It caused the Irish potato famine in the 1840s. Symptoms include dark, water-soaked lesions on leaves that quickly turn brown and black with a pale green border. White mold may appear on leaf undersides in humid conditions."
-            />
-            <DiseaseCard 
-              name="Early Blight"
-              scientificName="Alternaria solani"
-              imageSrc="https://i.imgur.com/MwEMIIc.jpg"
-              description="Early Blight typically appears as target-shaped dark brown spots with concentric rings on lower, older leaves first. The disease progresses upward, causing leaf yellowing and defoliation. Spots are often surrounded by a yellow halo and may coalesce as they enlarge."
-            />
-            <DiseaseCard 
-              name="Healthy Plant"
-              imageSrc="https://i.imgur.com/1vrQIlD.jpg"
-              description="Healthy potato plants have vibrant green leaves with no signs of spots, lesions, or discoloration. The foliage is full and shows no wilting or curling. Proper identification of healthy plant characteristics helps in early detection of diseases."
-            />
-          </div>
+          {/* Disease Cards Section - Using DiseaseSection component with hideHeader=true and no "View All" button */}
+          <DiseaseSection hideHeader={true} showViewAllButton={false} />
           
           {/* Detailed Disease Information */}
           <section className="mt-16">
