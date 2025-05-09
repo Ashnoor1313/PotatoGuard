@@ -81,28 +81,77 @@ export function DiseaseInfo({ classification }: DiseaseInfoProps) {
       ];
   }
 
+  const isHealthy = classification.toLowerCase() === 'healthy';
+  
   return (
-    <Card className="shadow-md">
-      <CardContent className="p-6">
-        <h2 className="text-xl font-semibold mb-4 text-neutral-darkest dark:text-white">Disease Information</h2>
+    <Card className="shadow-lg bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-xl border border-green-100 dark:border-green-900/60">
+      <CardContent className="p-8">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="bg-green-100 dark:bg-green-900/30 p-2 rounded-full">
+            <div className={`rounded-full w-8 h-8 flex items-center justify-center ${
+              isHealthy 
+                ? 'bg-gradient-to-br from-green-500 to-green-600' 
+                : 'bg-gradient-to-br from-amber-500 to-amber-600'
+            }`}>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+          </div>
+          <h2 className="text-xl font-bold text-gray-800 dark:text-white">
+            {isHealthy ? 'Plant ' : 'Disease '} 
+            <span className={isHealthy ? 'text-green-600 dark:text-green-400' : 'text-amber-600 dark:text-amber-400'}>
+              Information
+            </span>
+          </h2>
+        </div>
         
         <div>
-          <h3 className="text-lg font-medium text-neutral-darkest dark:text-white mb-2">{title}</h3>
-          <p className="text-neutral-darkest dark:text-gray-300 mb-3">{description}</p>
+          <div className={`p-5 rounded-xl mb-6 ${
+            isHealthy 
+              ? 'bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 dark:border-green-600' 
+              : 'bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-500 dark:border-amber-600'
+          }`}>
+            <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-2">{title}</h3>
+            <p className="text-gray-700 dark:text-gray-300">{description}</p>
+          </div>
           
-          <h4 className="font-medium text-neutral-darkest dark:text-white mt-4 mb-2">Symptoms:</h4>
-          <ul className="list-disc pl-5 space-y-1 text-neutral-darkest dark:text-gray-300">
-            {symptoms.map((symptom, index) => (
-              <li key={index}>{symptom}</li>
-            ))}
-          </ul>
-          
-          <h4 className="font-medium text-neutral-darkest dark:text-white mt-4 mb-2">Management:</h4>
-          <ul className="list-disc pl-5 space-y-1 text-neutral-darkest dark:text-gray-300">
-            {management.map((tip, index) => (
-              <li key={index}>{tip}</li>
-            ))}
-          </ul>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
+              <h4 className="font-semibold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-600 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                </svg>
+                Symptoms
+              </h4>
+              <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                {symptoms.map((symptom, index) => (
+                  <li key={index} className="flex items-start gap-2">
+                    <span className="text-green-600 dark:text-green-400 mt-1">•</span>
+                    <span>{symptom}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            <div className="bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
+              <h4 className="font-semibold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-600 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                Management
+              </h4>
+              <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                {management.map((tip, index) => (
+                  <li key={index} className="flex items-start gap-2">
+                    <span className="text-green-600 dark:text-green-400 mt-1">•</span>
+                    <span>{tip}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </CardContent>
     </Card>
