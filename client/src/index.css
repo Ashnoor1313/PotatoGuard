@@ -100,3 +100,71 @@
   max-height: 300px;
   object-fit: contain;
 }
+
+/* Custom Scrollbar Styling */
+/* For all scrollable elements */
+.scrollable-container {
+  overflow: auto;
+}
+
+/* For Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Make the scrollbar more visible on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.05) transparent;
+}
+
+.dark * {
+  scrollbar-color: rgba(255, 255, 255, 0.05) transparent;
+}
+
+*:hover {
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.dark *:hover {
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+/* For specific areas where the scrollbar is visible, like in text areas */
+.scrollable-element {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  transition: scrollbar-color 0.3s ease;
+}
+
+.scrollable-element:hover {
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+}
+
+.dark .scrollable-element:hover {
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
