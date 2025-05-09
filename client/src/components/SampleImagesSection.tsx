@@ -3,6 +3,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 
+// Import sample images
+import image1 from "@/assets/image_1746810424180.png";
+import image2 from "@/assets/image_1746810354047.png";
+import image3 from "@/assets/image_1746810563345.png";
+import image4 from "@/assets/image_1746809135733.png";
+import image5 from "@/assets/image_1746797352482.png";
+
 interface SampleImage {
   name: string;
   filename: string;
@@ -11,36 +18,41 @@ interface SampleImage {
 }
 
 export function SampleImagesSection() {
-  const sampleImages: SampleImage[] = [
+  const sampleImages = [
     {
-      name: "Potato Leaf Sample 1",
+      name: "Healthy Potato Leaf",
+      image: image1,
       filename: "image_1746810424180.png",
-      description: "Potato leaf sample for disease analysis",
-      type: "healthy"
+      description: "A healthy potato leaf with no signs of disease",
+      type: "healthy" as const
     },
     {
-      name: "Potato Leaf Sample 2",
+      name: "Early Blight Sample",
+      image: image2,
       filename: "image_1746810354047.png",
-      description: "Potato leaf sample for disease analysis",
-      type: "early-blight"
+      description: "Potato leaf affected by early blight disease",
+      type: "early-blight" as const
     },
     {
-      name: "Potato Leaf Sample 3",
+      name: "Late Blight Sample",
+      image: image3,
       filename: "image_1746810563345.png",
-      description: "Potato leaf sample for disease analysis",
-      type: "late-blight"
+      description: "Potato leaf affected by late blight disease",
+      type: "late-blight" as const
     },
     {
-      name: "Potato Leaf Sample 4",
+      name: "Mixed Symptoms Sample",
+      image: image4,
       filename: "image_1746809135733.png",
-      description: "Potato leaf sample for disease analysis",
-      type: "other"
+      description: "Potato leaf with potential disease markers",
+      type: "other" as const
     },
     {
-      name: "Potato Leaf Sample 5",
+      name: "Nutrient Deficiency",
+      image: image5,
       filename: "image_1746797352482.png",
-      description: "Potato leaf sample for disease analysis",
-      type: "other"
+      description: "Potato leaf showing signs of nutrient deficiency",
+      type: "other" as const
     }
   ];
   
@@ -83,9 +95,9 @@ export function SampleImagesSection() {
     }
   };
   
-  const handleDownload = (filename: string) => {
+  const handleDownload = (imageSrc: string, filename: string) => {
     const link = document.createElement('a');
-    link.href = `/sample-images/${filename}`;
+    link.href = imageSrc;
     link.download = filename;
     document.body.appendChild(link);
     link.click();
@@ -116,14 +128,14 @@ export function SampleImagesSection() {
             </div>
             <div className="h-48 overflow-hidden relative">
               <img 
-                src={`/sample-images/${image.filename}`} 
+                src={image.image} 
                 alt={image.name}
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="p-4 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border-t border-gray-100 dark:border-gray-700">
               <Button 
-                onClick={() => handleDownload(image.filename)}
+                onClick={() => handleDownload(image.image, image.filename)}
                 className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white"
               >
                 <Download className="h-4 w-4 mr-2" />
