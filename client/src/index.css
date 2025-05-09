@@ -43,26 +43,30 @@
 }
 
 .dark {
-  --background: 240 10% 3.9%;
-  --foreground: 0 0% 98%;
-  --muted: 240 3.7% 15.9%;
-  --muted-foreground: 240 5% 64.9%;
-  --popover: 240 10% 3.9%;
-  --popover-foreground: 0 0% 98%;
-  --card: 240 10% 3.9%;
-  --card-foreground: 0 0% 98%;
-  --border: 240 3.7% 15.9%;
-  --input: 240 3.7% 15.9%;
-  --primary: 142 60% 30%;
-  --primary-foreground: 355 100% 100%;
+  --background: 222 47% 11%;
+  --foreground: 210 40% 98%;
+  --muted: 217 33% 17%;
+  --muted-foreground: 215 20% 65%;
+  --popover: 222 47% 11%;
+  --popover-foreground: 210 40% 98%;
+  --card: 222 47% 11%;
+  --card-foreground: 210 40% 98%;
+  --border: 217 33% 17%;
+  --input: 217 33% 17%;
+  --primary: 142 70% 45%;
+  --primary-foreground: 210 40% 98%;
   --secondary: 142 50% 45%;
-  --secondary-foreground: 0 0% 98%;
+  --secondary-foreground: 210 40% 98%;
   --accent: 142 30% 20%;
-  --accent-foreground: 0 0% 98%;
+  --accent-foreground: 210 40% 98%;
   --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 0 0% 98%;
+  --destructive-foreground: 210 40% 98%;
   --ring: 142 50% 45%;
   --radius: 0.5rem;
+}
+
+.dark body {
+  @apply bg-[#0A192F] text-foreground;
 }
 
 @layer base {

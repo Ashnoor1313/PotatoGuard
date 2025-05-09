@@ -1,27 +1,11 @@
 import { Link, useLocation } from "wouter";
 import { Moon, Leaf, Sun, Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
+import { useTheme } from "@/components/ThemeProvider";
+import { useState } from "react";
 
 // Simple theme toggle component
 function ModeToggle() {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
-
-  useEffect(() => {
-    const isDark = document.documentElement.classList.contains("dark");
-    setTheme(isDark ? "dark" : "light");
-  }, []);
-
-  const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    
-    if (newTheme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  };
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <button
@@ -60,7 +44,7 @@ export function Navbar() {
               <Leaf className="h-7 w-7 text-primary" />
               <div>
                 <div className="text-xl font-bold text-primary">PotatoGuard</div>
-                <div className="text-xs text-gray-400 mt-[-3px]">AI-Powered Disease Detection</div>
+                <div className="text-xs text-gray-400 dark:text-gray-400 mt-[-3px]">AI-Powered Disease Detection</div>
               </div>
             </div>
           </Link>
