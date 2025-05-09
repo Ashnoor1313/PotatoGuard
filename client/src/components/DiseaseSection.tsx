@@ -9,23 +9,23 @@ interface DiseaseSectionProps {
 }
 
 export function DiseaseSection({ showViewAllButton = true, hideHeader = false }: DiseaseSectionProps) {
-  // Define diseases with image URLs - using reliable URLs for consistent display
+  // Define diseases with stable image URLs
   const diseases = [
     {
       name: "Late Blight",
       scientificName: "Phytophthora infestans",
-      imageSrc: "https://extension.umn.edu/sites/extension.umn.edu/files/styles/width_1200/public/Potato-late-blight-leaf-lesions.jpg?itok=QJ5Uim-H",
+      imageSrc: "https://content.ces.ncsu.edu/media/images/LBVD-1-NCSU-Clyde_OrsenlzF.jpg",
       description: "Late Blight is one of the most destructive potato diseases. It caused the Irish potato famine in the 1840s. Symptoms include dark, water-soaked lesions on leaves that quickly turn brown and black with a pale green border. White mold may appear on leaf undersides in humid conditions."
     },
     {
       name: "Early Blight",
       scientificName: "Alternaria solani",
-      imageSrc: "https://extension.oregonstate.edu/sites/default/files/styles/article_full/public/images/2018-11/img1820.jpg?itok=xdvLVVeR",
+      imageSrc: "https://aggie-horticulture.tamu.edu/vegetable/files/2012/01/L189_39.jpg",
       description: "Early Blight typically appears as target-shaped dark brown spots with concentric rings on lower, older leaves first. The disease progresses upward, causing leaf yellowing and defoliation. Spots are often surrounded by a yellow halo and may coalesce as they enlarge."
     },
     {
       name: "Healthy Plant",
-      imageSrc: "https://vegcropshotline.org/wp-content/uploads/2022/06/Picture10.jpg",
+      imageSrc: "https://www.canr.msu.edu/contentAsset/image/4ef63e40-ed4a-4b72-866a-bbe88a73f2bd/fileAsset/filter/Resize,Jpeg/resize_w/750/jpeg_q/80",
       description: "Healthy potato plants have vibrant green leaves with no signs of spots, lesions, or discoloration. The foliage is full and shows no wilting or curling. Proper identification of healthy plant characteristics helps in early detection of diseases."
     }
   ];

@@ -9,10 +9,11 @@ interface DiseaseCardProps {
 
 export function DiseaseCard({ name, imageSrc, description, scientificName }: DiseaseCardProps) {
   return (
-    <div className="group relative overflow-hidden rounded-lg h-[350px] transition-all duration-300 ease-in-out shadow-md hover:shadow-xl">
+    <div className="group relative overflow-hidden rounded-lg h-[350px] transition-all duration-300 ease-in-out shadow-md hover:shadow-xl bg-gray-800">
+      {/* Fallback solid background color in case image doesn't load */}
       <div 
         className="absolute inset-0 bg-cover bg-center transition-all duration-500 ease-in-out group-hover:scale-110"
-        style={{ backgroundImage: `url(${imageSrc})` }}
+        style={{ backgroundImage: `url(${imageSrc})`, backgroundColor: '#2c3e50' }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
       
