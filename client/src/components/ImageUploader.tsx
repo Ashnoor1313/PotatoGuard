@@ -94,25 +94,27 @@ export function ImageUploader({
   return (
     <Card className="shadow-md">
       <CardContent className="p-6">
-        <h2 className="text-xl font-semibold mb-4 text-neutral-darkest">Upload Image</h2>
+        <h2 className="text-xl font-semibold mb-4 text-neutral-darkest dark:text-white">Upload Image</h2>
         
         {/* Upload Area */}
         <div 
           {...getRootProps()} 
           className={`border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors ${
-            isDragActive ? "border-primary bg-primary/5" : "border-neutral-medium hover:border-primary"
+            isDragActive 
+              ? "border-primary bg-primary/5 dark:bg-primary/10" 
+              : "border-neutral-medium hover:border-primary dark:border-gray-700 dark:hover:border-primary"
           }`}
         >
           <input {...getInputProps()} />
           <div className="mb-4">
-            <Upload className="h-12 w-12 mx-auto text-neutral-dark" />
+            <Upload className="h-12 w-12 mx-auto text-neutral-dark dark:text-gray-400" />
           </div>
-          <p className="mb-2 text-neutral-darkest font-medium">
+          <p className="mb-2 text-neutral-darkest dark:text-white font-medium">
             {isDragActive ? "Drop your image here..." : "Drag and drop your image here"}
           </p>
-          <p className="text-sm text-neutral-dark mb-4">or</p>
+          <p className="text-sm text-neutral-dark dark:text-gray-400 mb-4">or</p>
           <Button>Browse Files</Button>
-          <p className="mt-4 text-xs text-neutral-dark">
+          <p className="mt-4 text-xs text-neutral-dark dark:text-gray-400">
             Supported formats: JPG, PNG, WEBP (Max size: 10MB)
           </p>
         </div>
@@ -120,8 +122,8 @@ export function ImageUploader({
         {/* Image Preview */}
         {previewUrl && (
           <div className="mt-6">
-            <h3 className="text-lg font-medium mb-2">Image Preview</h3>
-            <div className="relative bg-neutral-light rounded-lg p-2 flex justify-center">
+            <h3 className="text-lg font-medium mb-2 dark:text-white">Image Preview</h3>
+            <div className="relative bg-neutral-light dark:bg-gray-800 rounded-lg p-2 flex justify-center">
               <img 
                 src={previewUrl} 
                 alt="Preview of uploaded potato leaf" 
