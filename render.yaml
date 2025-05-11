@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: potato-backend
+    env: python
+    repo: https://github.com/<your-username>/<your-repo-name>
+    branch: main
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn main:app --host=0.0.0.0 --port=10000"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: potato-db
+          property: connectionString
+      - key: MODEL_PATH
+        value: "./models/potato_model.h5"
+    autoDeploy: true
+    plan: free
+    buildFilter:
+      paths:
+        - backend/**
+
+  - type: static
+    name: potato-frontend
+    env: static
+    repo: https://github.com/<your-username>/<your-repo-name>
+    branch: main
+    buildCommand: "npm install && npm run build"
+    staticPublishPath: frontend/build
+    envVars:
+      - key: REACT_APP_FASTAPI_URL
+        value: https://potato-backend.onrender.com/predict
+    buildFilter:
+      paths:
+        - frontend/**
+
+databases:
+  - name: potato-db
+    plan: free
